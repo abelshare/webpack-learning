@@ -8,7 +8,7 @@ module.exports = {
     app: './src/index.js'
   },
   output: {
-    filename: '[name].bundle.js',
+    filename: '[name].[hash].bundle.js',
     path: path.resolve(__dirname, 'dist'),
     publicPath: '/'
   },
@@ -16,17 +16,14 @@ module.exports = {
   devtool: 'inline-source-map',
   // 热重载
   devServer: {
-    contentBase: './dist',
-    hot: true
+    contentBase: './dist'
   },
   plugins: [
     new CleanWebpackPlugin(),
     new HtmlWebpackPlugin({
       title: 'output Management',
       lang: 'zh-CN'
-    }),
-    new webpack.NamedModulesPlugin(),
-    new webpack.HotModuleReplacementPlugin()
+    })
   ]
   // resolve: {
   //   // 设置路径别名
